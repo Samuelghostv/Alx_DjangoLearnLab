@@ -1,50 +1,50 @@
 # LibraryProject
 
-# Steps of creating Virtual Environment 
+## Steps of creating Virtual Environment 
 Note as the first thing you should before creating your django project
 
 create directory called
 
-# mkdir introduction_to_Django
+## mkdir introduction_to_Django
 
 Navigate to the introduction_to_django
 
-# cd path/to/your/introduction_to_django
+## cd path/to/your/introduction_to_django
 
 Create the Virtual Environment: is the environment is going to contain your or hold store your django project
 
-# python -m venv venv
+## python -m venv venv
 Note the virtual name is venv but which you can also changed it to your like
 eg
-# python -m venv mykeke
+## python -m venv mykeke
 note: that mykeke is the virtual name here
 
 Activate the Virtual Environment in other for it to run or to be in up state
 
-# venv\Scripts\activate  
-# mykeke\Script\activate
+## venv\Scripts\activate  
+## mykeke\Script\activate
 Note: this command for windows
 
 Installation of Django in the virtual environment
 
-# pip install django
+## pip install django
 Note: this command will install the django inside your virtual environment
 
 Create your First django project 
 
-# django-admin startproject LibraryProject
+## django-admin startproject LibraryProject
 Note: this command will create your django project name as " LibraryProject"
 
 Navigate to LibraryProject directory which is your django project name
 
-# cd LibraryProject
+## cd LibraryProject
 
 Note: at your windows you can open it straight using 
-# code .
+## code .
 
 Run django server 
 
-# python manage.py runserver
+## python manage.py runserver
 Note: in oder to see your django application is runnig successful, have to run the server
 which it will give you localhost address in this form http://127.0.0.1:8000/
 
