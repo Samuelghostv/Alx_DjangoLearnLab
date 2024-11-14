@@ -13,11 +13,11 @@ def booklist(request):
     books = Book.objects.all()
     context = {'books':books}
 
-    return render(request, 'relationship_app/list_books.html',context=context)
+    return render(request, "relationship_app/list_books.html",context=context)
 
 class LibraryListView(DetailView):
     model = Library
-    template_name = 'relationship_app/librarylist.html'
+    template_name = "relationship_app/librarylist.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -52,10 +52,10 @@ class register(CreateView):
     form_class = UserCreationForm()
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
-    template_name = 'relationship_app/register.html'
+    template_name = "relationship_app/register.html"
 
 class ProfileView(TemplateView):
-    template_name = 'relationship_app/profile.html'
+    template_name = "relationship_app/profile.html"
     # user = self.get_object
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
@@ -66,10 +66,10 @@ class ProfileView(TemplateView):
 from django.contrib.auth.views import LoginView, LogoutView
 
 class login(LoginView):
-    template_name = 'relationship_app/login.html'
+    template_name = "relationship_app/login.html"
 
 class logout(LogoutView):
-    template_name = 'relationship_app/logout.html'
+    template_name = "relationship_app/logout.html"
 
 
 # class MemberView(TemplateView):
