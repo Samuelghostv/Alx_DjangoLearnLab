@@ -1,13 +1,31 @@
 from typing import Any
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, TemplateView
-
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Author, Book, Librarian, Library
+from django.contrib.auth.decorators import permission_required
 
 from django.contrib.auth.models import User
 
 # Create your views here.
+
+@permission_required('relationship_app.can_add_book', raise_exception=True)
+def add_book(request):
+    # Logic for adding a book
+    pass
+
+@permission_required('relationship_app.can_change_book', raise_exception=True)
+def edit_book(request, book_id):
+    book = get_object_or_404(Book, id=book_id)
+    # Logic for editing a book
+    pass
+
+@permission_required('relationship_app.can_delete_book', raise_exception=True)
+def delete_book(request, book_id):
+    book = get_object_or_404(Book, id=book_id)
+    # Logic for deleting a book
+    pass
 
 def booklist(request):
     books = Book.objects.all()
