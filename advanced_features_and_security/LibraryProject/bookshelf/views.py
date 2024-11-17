@@ -3,6 +3,13 @@ from django.http import HttpRequest, HttpResponse
 from django.contrib.auth.decorators import permission_required
 from .models import News, news_id
 
+# View to list the News (or books)
+@permission_required("bookshelf.can_view_news", raise_exception=True)
+def book_list(request):
+    # Query to get all the news from the database
+    news = News.objects.all()
+    return render(request, "book_list.html", {"news": news})
+
 @permission_required("bookshelf.can_create_news", raise_exception=True)
 def create_news(request):
     if request.method == "POST":
