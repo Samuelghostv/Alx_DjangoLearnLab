@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User, AbstractUser
 
 
+    # Add other fields as needed
 class Author(models.Model):
     """
     Represents an author of a book.
