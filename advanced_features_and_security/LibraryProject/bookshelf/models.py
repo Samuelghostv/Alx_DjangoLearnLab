@@ -40,6 +40,8 @@ class CustomUserManager(BaseUserManager):
 # Create user model
 # Extended AbstractUser class
 class CustomUser(AbstractUser):
+    class Meta:
+        db_table = "auth_user"
     email = models.EmailField(unique=True)
     date_of_birth = models.DateField(null=True, blank=True)
     profile_photo = models.ImageField(null=True, blank=True)
