@@ -18,6 +18,10 @@
    - 'view_news'   : Required  'can_view' permissions
    - 'delete_news'  : Required  'can_delete' permissions
 
-   **Testing**
+ 4. **Testing**
    - create test users in Django admin and assign them to groups (Views, Editors, Admins).
    - log in as different user in a specific groups and test the ability to perform actions like creating, editing, viewing, and deleting news. Ensure the permissions are well applied to them
+
+   
+
+
