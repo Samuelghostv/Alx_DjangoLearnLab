@@ -3,6 +3,24 @@ from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import BaseUserManager, UserManager
 from LibraryProject import settings
 
+class News(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    update_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        permissions =[
+            ("can_edit_news", "can edit news"),
+            ("can_create_news", "can create news"),
+            ("can_delete_news", "can delete news"),
+            ("can_view_news", "can view news"),
+        ]
+
+    def __str__(self) -> str:
+        return self.title
+
+
 # Implement custom user manager by creating user model and superuser
 class CustomUserManager(BaseUserManager):
     def create_user(self, username, email, password=None, date_of_birth=None, profile_photo=None):

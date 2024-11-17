@@ -2,16 +2,11 @@
 
 from django.db import models
 from django.contrib.auth.models import User, AbstractUser
+from LibraryProject import settings
 
 
 class Author(models.Model):
-    """
-    Represents an author of a book.
-
-    This model maps to a table called 'Author' in the database 'NewLibrary'.
-    The table will have one attribute:
-        - name: A string representing the author's name (max length: 100).
-    """
+   
     name = models.CharField(max_length=100)
 
     def __str__(self):
@@ -42,15 +37,7 @@ class Book(models.Model):
         ]
 
 class Library(models.Model):
-    """
-    Represents a library that contains books.
-
-    This model maps to a table called 'Library' in the database 'NewLibrary'.
-    The table will have two attributes:
-        - name: A string representing the library's name (max length: 200).
-        - books: A many-to-many relationship with the Book model, representing the books available in the library.
-                 Multiple libraries can have the same book.
-    """
+    
     name = models.CharField(max_length=200)
     books = models.ManyToManyField(Book, related_name='library')
 
@@ -75,30 +62,14 @@ class Librarian(models.Model):
         return self.name
     
 
-
-#creating a new user model for relationship app
-# user = User.objects.create_user(username='Bob', email='',password='123yesman')
-# user = User.objects.get(username='john')
-
-
-# class UserProfile(models.Model):
-#     class Roles(models.TextChoices):
-#         admin = "Admin"
-#         librarian = "Librarian"
-#         member = "Member"
-
-#     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='userprofiles')
-#     role = models.CharField(max_length=20, choices=Roles, default=Roles.member)
-
-#     def __str__(self) -> str:
-#         return f"{self.user.username}'s profile."
  
 class UserProfile(models.Model):
     class Role(models.TextChoices):
         admin = "Admin"
         librarian = "Librarian"
         member = "Member"
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
     role = models.CharField(choices=Role, max_length=10, default=Role.member)
     
     def __str__(self) -> str:

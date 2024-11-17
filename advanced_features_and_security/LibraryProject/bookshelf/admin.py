@@ -1,15 +1,18 @@
 from django.contrib import admin
 from .models import Author, Book
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from .models import User
+from .models import CustomUser, UserAdmin
+from .import admin_site, CustomUserAdmin
 
-class UserAdmin(BaseUserAdmin):
-    list_display = ['email', 'date_of_birth', 'profile_photo']
 
-admin.site.register(User, UserAdmin)
+class CustomUserAdmin(UserAdmin):
+    model = CustomUser
+    list_display =["username", "email", "date_of_birth", "profile_photo", "is_admin"]
+
+    admin_site.register(CustomUser, CustomUserAdmin)
+
 
 "admin.site.register(CustomUser, CustomUserAdmin)"
-
 
 
 # Register your models here.
