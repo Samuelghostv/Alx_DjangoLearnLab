@@ -2,6 +2,30 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpRequest, HttpResponse
 from django.contrib.auth.decorators import permission_required
 from .models import News, news_id
+from .models import Book
+from .forms import BookSearchForm
+
+
+def book_list(request):
+    form = BookSearchForm(request.GET)
+    if form.is_valid():
+        query = form.cleaned_data["query"]
+        books = Book.objects.filter(title__icontains=query)
+    else:
+        books = Book.objects.all()
+
+    return render(request, "bookshelf/book_list.html", {"form" : form, "books" : books})
+
+# creating the books list 
+
+def book_list(request):
+    query = request.GET.get("search", "")
+    if query:
+        books = Book.objects.filter(title__icontains=query)
+    else:
+        books = Book.objects.all()
+        return render(request, "bookshelf/book_list.html", {"books" : books})
+    
 
 # View to list the News (or books)
 @permission_required("bookshelf.can_view_news", raise_exception=True)
