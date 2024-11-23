@@ -24,15 +24,30 @@ SECRET_KEY = 'django-insecure-859=ugt0onsaxb&mx7^9-8r*-c4!q!5+6#l#+n&r5@k%!x=81+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-SECURE_BROWSER_XSS_FILTER = True
+
+# Security Headers
+SECURE_BROWSER_XSS_FILTER = True # Enables the XSS filter in browser
 X_FRAME_OPTIONS = "DENY"
-SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_CONTENT_TYPE_NOSNIFF = True # Enables the content type sniffing filter
+
+# Secure Cookies
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
+
+# Force all traffic to be redirected to HTTPS
 SECURE_SSL_REDIRECT = True
+
+# Browser HSTS
 SECRET_HST_SECONDS = 3600
+
+# HTTP Strict Transport Security
 SECRET_HST_INCLUDE_SUBDOMAINS = True
 SECRET_HST_PRELOAD = True
+SECRET_HST_SECONDS = 31536000
+
+# Security Headers for SSL Proxy
+SECRET_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PORT", "https") # to ensure SSL/TLS is being used for all connections
+
 
 
 
