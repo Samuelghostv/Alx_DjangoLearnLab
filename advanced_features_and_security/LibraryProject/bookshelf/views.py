@@ -4,6 +4,11 @@ from django.contrib.auth.decorators import permission_required
 from .models import News, news_id
 from .models import Book
 from .forms import BookSearchForm
+from .forms import ExampleForm
+
+def example_view(request):
+    form = ExampleForm()
+    return render(request, "bookshelf/form_example.html", {"form" : form})
 
 
 def book_list(request):
