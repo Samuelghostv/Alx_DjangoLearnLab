@@ -46,7 +46,7 @@ SECURE_HSTS_PRELOAD = True
 "SECURE_HSTS_SECONDS" = 31536000
 
 # Security Headers for SSL Proxy
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PORT", "https") # to ensure SSL/TLS is being used for all connections
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https") # to ensure SSL/TLS is being used for all connections
 
 
 
