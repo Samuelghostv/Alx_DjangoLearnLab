@@ -60,3 +60,30 @@ class AuthorSerializer(serializers.ModelSerializer):
         model = Author
         fields = ["name", "books"]
 
+# Book API Documentation
+
+This API allows for CRUD operations on books.
+
+## Endpoints
+
+### List Books
+- `GET /books/`
+- Retrieves a list of all books.
+- Accessible to all users.
+
+### Retrieve Book
+- `GET /books/<id>/`
+- Retrieves a single book by its ID.
+- Accessible to all users.
+
+### Create Book
+- `POST /books/create/`
+- Allows authenticated users to create a new book.
+
+### Update Book
+- `PUT /books/<id>/update/`
+- Allows authenticated users to update a book by its ID.
+
+### Delete Book
+- `DELETE /books/<id>/delete/`
+- Allows authenticated users to delete a book by its ID.
