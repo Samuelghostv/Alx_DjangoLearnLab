@@ -1,5 +1,5 @@
 
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+"from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated"
 from rest_framwork.views import APIView
 from rest_framework.response import Response
 from .models import Author
