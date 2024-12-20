@@ -1,7 +1,8 @@
 "from django_filters import rest_framework"
-"from .filters import OrderingFilter"
+from rest_framework.filters import OrderingFilter
+from rest_framework.filters import SearchFilter
+from rest_framework import viewsets
 "from rest_framework.filters import OrderingFilter"
-"from rest_framework.filters import SearchFilter"
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from rest_framwork.views import APIView
 from rest_framework.response import Response
@@ -14,14 +15,22 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .filters import BookFilter
 # Create your views here.
 # List all the books
-class BookListView(generics.ListAPIView):
+class BookListView(viewsets.ModelViewSet):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+    filter_backends = (DjangoFilterBackend, OrderingFilter)
+    filterset_fields = ["title", "author", "publication_year"]
+    ordering_fields = ["title", "publication_year"]
+    ordering = ["title"]  # Default ordering
+
+class BookListView(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
-    filterset_class = BookFilter
-    Search_filter = ["title," "author"]
-    Ordering_field = ["title", "publication_year"]
-    ordering = ["title"]   # default ordering
+    filterset_fields = ["title", "author", "publication_year"]
+    search_fields = ["title", "author"]  # Fields that can be searched
+    ordering_fields = ["title", "publication_year"]
+    ordering = ["title"]  # Default ordering
 
 class AuthorListView(APIView):
     def get(self, request):

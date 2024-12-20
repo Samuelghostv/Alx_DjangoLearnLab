@@ -108,3 +108,24 @@ Order by publication year:
 bash
 Copy code
 /api/books/?ordering=-publication_year
+
+class BookListView(viewsets.ModelViewSet):
+    """
+    This view allows users to:
+    - Filter books by title, author, or publication year
+    - Search books by title or author
+    - Order books by title or publication year
+
+    Example requests:
+    - Filter by title: `GET /books/?title=Harry Potter`
+    - Search by author: `GET /books/?search=Rowling`
+    - Order by publication year (ascending): `GET /books/?ordering=publication_year`
+    - Order by title (descending): `GET /books/?ordering=-title`
+    """
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+    filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
+    filterset_fields = ['title', 'author', 'publication_year']
+    search_fields = ['title', 'author']
+    ordering_fields = ['title', 'publication_year']
+    ordering = ['title']
