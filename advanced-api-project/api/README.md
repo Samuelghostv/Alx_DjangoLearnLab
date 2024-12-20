@@ -87,3 +87,24 @@ This API allows for CRUD operations on books.
 ### Delete Book
 - `DELETE /books/<id>/delete/`
 - Allows authenticated users to delete a book by its ID.
+
+ Request Documentation:
+Filter by title:
+
+bash
+Copy code
+/api/books/?title=python
+This returns all books with "python" in the title.
+
+Search for books:
+
+bash
+Copy code
+/api/books/?search=django
+This searches for books with "django" in the title or author.
+
+Order by publication year:
+
+bash
+Copy code
+/api/books/?ordering=-publication_year
