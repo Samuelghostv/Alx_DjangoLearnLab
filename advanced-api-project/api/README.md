@@ -129,3 +129,18 @@ class BookListView(viewsets.ModelViewSet):
     search_fields = ['title', 'author']
     ordering_fields = ['title', 'publication_year']
     ordering = ['title']
+
+## Testing
+
+"""
+Testing Strategy:
+
+- Create a user, authenticate them, and test the CRUD operations for the `Book` model.
+- Test the filtering functionality to ensure books can be filtered by title, author, and publication year.
+- Test the search functionality to verify that books can be searched by title and author.
+- Test ordering to ensure that books can be ordered by title and publication year.
+- Test permissions to ensure unauthorized users cannot perform restricted operations.
+- Test edge cases such as attempting to delete non-existing books or search with empty fields.
+
+Run the tests using: `python manage.py test api`
+"""
