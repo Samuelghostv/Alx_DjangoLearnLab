@@ -25,7 +25,21 @@ SECRET_KEY = 'django-insecure-ca+yj&pjl&9*w7y+s_e7-)nqa*@t%%j&*3#=1=jgf&^l6ur2is
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CSRF_COOKIE_SECURE = True  # Should be True in production for secure cookies
+
 ALLOWED_HOSTS = []
+
+# Redirect to users to the homepage after login
+LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_REDIRECT_URL = 'login'
+
+LOGIN_URL = 'login'
+
+# Authentication backends
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
 
 
 # Application definition
@@ -104,6 +118,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'blog.UserProfile'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -120,7 +136,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
@@ -134,3 +150,4 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
