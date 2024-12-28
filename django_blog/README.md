@@ -1,13 +1,21 @@
-You will need to create documentation that describes the authentication system:
+## Documentation overview
 
-## Explanation of Authentication Flow:
+The authentication system consists of four main functionalities, registration, login, logout and profile
+management.
 
-The registration view is accessible via /register, where users can create new accounts.
-Login is done through /login, where users enter their username and password.
-Logout is handled by Django's built-in logout view, accessible at /logout.
-Profile management is available at /profile, where users can update their email and other details.
-Testing Authentication Features:
+User can create account, login in, logout, and update their profiles with additional field like email and bio.
 
-Registration: Test by creating a new user via /register.
-Login/Logout: Test by logging in at /login and logging out using the logout button or by visiting /logout.
-Profile Update: After logging in, visit /profile to test updating user details.
+## Setup Instruction
+
+Ensure Django is installed.
+create the CustomUserCreationform and UserProfile model.
+Define views for registration, login, logout and profile management.
+Create corresponding HTML templates
+Configure URLS in urls.py
+
+## Testing the Authentication Features
+
+Registration: Ensure users can successfully register.
+Login/logout: Test login/logout redirect and sessions management
+Profile Management: Testing updating the profile information
+Security: Test CSRF protection and password security
