@@ -1,4 +1,4 @@
-<!-- templates/registration/login.html -->
+<!-- templates/registration/logout.html -->
 {% load static %}
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Login</button>
+        <button type="submit">Logout</button>
     </form>
 </body>
 
