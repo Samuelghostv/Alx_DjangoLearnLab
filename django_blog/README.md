@@ -19,3 +19,13 @@ Registration: Ensure users can successfully register.
 Login/logout: Test login/logout redirect and sessions management
 Profile Management: Testing updating the profile information
 Security: Test CSRF protection and password security
+
+## Blog post management feature doc
+
+This is a sample blog application where users can create, read, update, and delete posts
+
+- **Post List**: View all blog posts with a title and snippet of content.
+- **Post Detail**: View the full content of blog posts.
+- **Create Post**: Authenticated user can create new posts.
+- **Edit Post**: Only authors can edits their post.
+- **Delete Post**: Only authors can delete their posts
