@@ -29,3 +29,10 @@ This is a sample blog application where users can create, read, update, and dele
 - **Create Post**: Authenticated user can create new posts.
 - **Edit Post**: Only authors can edits their post.
 - **Delete Post**: Only authors can delete their posts
+
+## The system will allow users to:
+
+- Add Comments: Authenticated users can post comments to a blog post via a form.
+- Edit Comments: Authenticated users can edit only their own comments by clicking an "Edit" button next to their comment.
+- Delete Comments: Authenticated users can delete only their own comments by clicking a "Delete" button next to their comment.
+- Comment Visibility: All users can view comments, but only the author of a comment can edit or delete it.

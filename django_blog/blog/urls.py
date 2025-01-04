@@ -4,6 +4,9 @@ from . import views
 from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView
 
 urlpatterns = [
+    path('posts/<int:post_id>/', views.post_detail, name="post_detail"),
+    path('comments/<int:comment_id>/edit/', views.edit_comment, name="edit_comment"),
+    path('comments/<int:comment_id>/delete/', views.delete_comment, name="delete_comment"),
     path("", PostListView.as_view(), name= "post_list"),
     path("post/<int:pk>/", PostDetailView.as_view(), name= "post_detail"),
     path("post/new/", PostCreateView.as_view(), name= "post_create"),
