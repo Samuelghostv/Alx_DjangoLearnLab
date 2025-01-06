@@ -18,7 +18,7 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
-class Post(models.Model):
+class BlogPost(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     tags = models.ManyToManyField(Tag, related_name='posts', blank=True)
