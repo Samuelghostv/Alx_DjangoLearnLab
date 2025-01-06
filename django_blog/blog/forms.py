@@ -8,6 +8,7 @@ from django import forms
 from .models import Post, Tag
 from .models import BlogPost  
 from taggit.forms import TagWidget 
+from django.forms import widgets
 
 
 class BlogPostForm(forms.ModelForm):
