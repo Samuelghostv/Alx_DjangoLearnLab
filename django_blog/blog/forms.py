@@ -4,15 +4,20 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Post
 from .models import Comment
-
-# forms.py
 from django import forms
 from .models import Post, Tag
+from .models import BlogPost  
+from taggit.forms import TagWidget 
 
-class PostForm(forms.ModelForm):
+
+class BlogPostForm(forms.ModelForm):
+    tags = forms.CharField(
+        widget=TagWidget(),  # Use TagWidget for tags
+        required=False,      # Optional, you can make it required based on your need
+    )
     class Meta:
-        model = Post
-        fields = ['title', 'content', 'tags']
+        model = BlogPost
+        fields = ['title', 'content', 'tags']  # Ensure 'tags' is included in fields
 
     tags = forms.CharField(
         required=False,
