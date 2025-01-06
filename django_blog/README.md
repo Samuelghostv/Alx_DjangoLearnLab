@@ -36,3 +36,10 @@ This is a sample blog application where users can create, read, update, and dele
 - Edit Comments: Authenticated users can edit only their own comments by clicking an "Edit" button next to their comment.
 - Delete Comments: Authenticated users can delete only their own comments by clicking a "Delete" button next to their comment.
 - Comment Visibility: All users can view comments, but only the author of a comment can edit or delete it.
+
+ ## Documentation for advanced feature tagging and search
+Write documentation for users, explaining how they can:
+
+- Add tags to posts when creating or editing.
+- Use the search bar to search posts by title, content, or tags.
+- Navigate to posts filtered by tags.
